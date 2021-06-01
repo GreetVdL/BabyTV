@@ -1,4 +1,6 @@
-# Web project starter kit with Parcel
+# Web project starter kit with Parcel :rocket:
+
+--) [Parcel website](https://parceljs.org/)
 
 ## How to use this kit
 
