@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm i -D parcel@next",
+    "parcel": "npm i -D parcel@next",
     "start": "parcel serve ./src/index.html --open",
     "clean": "rm -rf ./dist ./.parcel-cache ./out",
     "build": "npm run clean && parcel build ./src/index.html --dist-dir ./out --no-source-maps",
@@ -12,5 +12,5 @@
     "deploy": "surge ./out --domain https://testvangreet.surge.sh"
   },
   "author": "Greet Van der Linden",
-  "license": "MIT"
+  "license": ""
 }
