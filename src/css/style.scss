@@ -1,1 +1,36 @@
+@use "./base/variables" as *;
 @use "./base/reset";
+
+body {
+  min-height: 100vh;
+  //   background: linear-gradient(
+  //     159deg,
+  //     // rgb(248, 211, 203) 36%,
+  //     // rgba(244, 179, 133, 1) 100%
+  //     $lightyellow 36%,
+  //     $darkyellow 100%
+  //   );
+  background: linear-gradient(
+    -20deg,
+    darken($pinkish, 5%) 36%,
+    darken($yellowish, 5%) 100%
+  );
+  background-size: 200% 200%;
+  animation-name: colorflow;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes colorflow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
