@@ -1,5 +1,4 @@
 import "../css/style.scss";
-
 import { Circle, randomRange } from "./components/circle.js";
 
 const holder = document.querySelector("#container");
@@ -9,6 +8,7 @@ const amountCircles = 100;
 const promises = [];
 const allCircles = [];
 
+// Draw all circles
 for (let i = 1; i <= amountCircles; i++) {
   // Generate random values
   const diameter = randomRange(50, 250);
@@ -17,7 +17,7 @@ for (let i = 1; i <= amountCircles; i++) {
 
   // Draw circle
   promises.push(
-    new Promise((resolve, reject) => {
+    new Promise((resolve) => {
       setTimeout(() => {
         allCircles.push(new Circle(diameter, x, y, holder));
         resolve();
@@ -26,6 +26,7 @@ for (let i = 1; i <= amountCircles; i++) {
   );
 }
 
+// When all circles are drawn, they turn pink and disappear
 async function pinkify() {
   await Promise.all(promises);
   allCircles.forEach((circle) => {
