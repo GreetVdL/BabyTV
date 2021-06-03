@@ -7,7 +7,7 @@ function randomRange(min, max) {
 
 // circle class
 export default class RandomCircle {
-  constructor() {
+  constructor(x) {
     this.width = randomRange(50, 250);
     this.x = Math.round(
       (document.body.offsetWidth - this.width) * Math.random()
@@ -23,10 +23,13 @@ export default class RandomCircle {
     this.holder.insertAdjacentHTML(
       "beforeend",
       `
-        <div class="circle"></div>
+        <div id=${this._id} class="circle"></div>
       `
     );
     return this.holder.querySelector(".circle:last-child");
+  }
+  clear() {
+    this.htmlRef.remove();
   }
   applyStyling() {
     const styles = {
