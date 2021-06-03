@@ -17,17 +17,49 @@ let count = 0;
 //   clearInterval(interval);
 // }
 
-function wait() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(), 1000);
+// function wait() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(), 1000);
+//   });
+// }
+
+// async function drawCircle() {
+//   new Circle();
+//   await wait();
+// }
+
+const promises = [];
+const allCircles = [];
+
+for (let i = 1; i <= amountCircles; i++) {
+  promises.push(
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        allCircles.push(new Circle());
+        resolve();
+      }, 200 * i);
+    })
+  );
+}
+
+async function pinkify() {
+  await Promise.all(promises);
+  console.log("eureka");
+  allCircles.forEach((circle) => {
+    circle.htmlRef.style.backgroundColor = "#F192D2";
   });
 }
 
-async function drawCircle() {
-  new Circle();
-  await wait();
-}
+pinkify();
 
-for (let i = 0; i < amountCircles; i++) {
-  drawCircle();
-}
+//   promises.push(
+//     new Promise((resolve, reject) => {
+//       setTimeout(
+//         // allCircles.push(new Circle());
+//         resolve,
+//         200 * i
+//       );
+//     })
+//   );
+
+// Promise.all(promises).then(console.log("alle cirkels zijn er"));

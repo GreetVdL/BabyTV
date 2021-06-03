@@ -6,7 +6,7 @@ function randomRange(min, max) {
 }
 
 // circle class
-export default class Circle {
+export default class RandomCircle {
   constructor() {
     this.width = randomRange(50, 250);
     this.x = Math.round(
