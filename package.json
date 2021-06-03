@@ -1,5 +1,5 @@
 {
-  "name": "starter-kit-parcel",
+  "name": "babytv",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -9,8 +9,11 @@
     "clean": "rm -rf ./dist ./.parcel-cache ./out",
     "build": "npm run clean && parcel build ./src/index.html --dist-dir ./out --no-source-maps",
     "serve": "live-server ./out",
-    "deploy": "surge ./out --domain https://testvangreet.surge.sh"
+    "deploy": "surge ./out --domain https://babytvtest.surge.sh"
   },
   "author": "Greet Van der Linden",
-  "license": ""
+  "license": "MIT",
+  "dependencies": {
+    "randomcolor": "^0.6.2"
+  }
 }

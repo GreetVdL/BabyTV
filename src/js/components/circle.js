@@ -1,0 +1,1 @@
+import randomColor from "randomcolor";
