@@ -9,9 +9,12 @@ const amountCircles = 100;
 const promises = [];
 const allCircles = [];
 
-button.addEventListener("click", (event) => {
-  // Button disappears
+// Animation plays on button click
+button.addEventListener("click", () => {
+  // Button disappears and  allCircles array is being emptied
   button.style.display = "none";
+  allCircles.length = 0;
+  console.log(allCircles);
 
   // Draw all circles
   for (let i = 1; i <= amountCircles; i++) {
@@ -45,6 +48,7 @@ button.addEventListener("click", (event) => {
     setTimeout(() => {
       allCircles.forEach((circle) => circle.clear());
     }, 2000);
+
     setTimeout(() => {
       button.style.display = "block";
     }, 2000);
