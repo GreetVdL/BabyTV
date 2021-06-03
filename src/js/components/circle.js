@@ -1,43 +1,52 @@
 import randomColor from "randomcolor";
 
-// helper functions
-function randomRange(min, max) {
+// helper function
+export function randomRange(min, max) {
   return Math.random() * (max - min) + min;
 }
 
 // circle class
-export default class RandomCircle {
-  constructor(x) {
-    this.width = randomRange(50, 250);
-    this.x = Math.round(
-      (document.body.offsetWidth - this.width) * Math.random()
-    );
-    this.y = Math.round(
-      (document.body.offsetHeight - this.width) * Math.random()
-    );
-    this.holder = document.querySelector("#container");
-    this.htmlRef = this.generateHTML();
+export class Circle {
+  _diameter;
+  _x;
+  _y;
+  _holder;
+  _htmlRef;
+
+  constructor(diameter, x, y, holder) {
+    this._diameter = diameter;
+    this._x = x;
+    this._y = y;
+    this._holder = holder;
+    this._htmlRef = this.generateHTML();
     this.applyStyling();
   }
+
+  get htmlRef() {
+    return this._htmlRef;
+  }
+
+  clear() {
+    this._htmlRef.remove();
+  }
+
   generateHTML() {
-    this.holder.insertAdjacentHTML(
+    this._holder.insertAdjacentHTML(
       "beforeend",
       `
-        <div id=${this._id} class="circle"></div>
+        <div class="circle"></div>
       `
     );
-    return this.holder.querySelector(".circle:last-child");
+    return this._holder.querySelector(".circle:last-child");
   }
-  clear() {
-    this.htmlRef.remove();
-  }
+
   applyStyling() {
     const styles = {
-      width: this.width + "px",
-      height: this.width + "px",
+      width: this._diameter + "px",
+      height: this._diameter + "px",
       position: "absolute",
-      top: this.y + "px",
-      left: this.x + "px",
+      top: this._y + "px",
+      left: this._x + "px",
       borderRadius: "50%",
       animationDuration: randomRange(5, 20) + "s",
       backgroundColor: randomColor({
@@ -48,6 +57,6 @@ export default class RandomCircle {
         luminosity: "light",
       })}`,
     };
-    Object.assign(this.htmlRef.style, styles);
+    Object.assign(this._htmlRef.style, styles);
   }
 }
