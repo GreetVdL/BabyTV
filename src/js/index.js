@@ -29,7 +29,8 @@ for (let i = 1; i <= amountCircles; i++) {
 async function pinkify() {
   await Promise.all(promises);
   allCircles.forEach((circle) => {
-    circle.htmlRef.style.backgroundColor = "#F192D2";
+    circle.htmlRef.style.backgroundColor = "#F8C6E7";
+    circle.htmlRef.style.border = "3px solid #F8C6E7";
   });
   setTimeout(() => {
     allCircles.forEach((circle) => circle.clear());
