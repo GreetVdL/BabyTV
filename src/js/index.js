@@ -9,6 +9,8 @@ const amountCircles = 100;
 const promises = [];
 const allCircles = [];
 
+const pinkColor = "#F8C6E7";
+
 // Animation plays on button click
 button.addEventListener("click", () => {
   // Button disappears and  allCircles array is being emptied
@@ -39,18 +41,22 @@ button.addEventListener("click", () => {
 
   // When all circles are drawn, they turn pink and disappear and the "play" button appears again
   async function finish() {
-    await Promise.all(promises);
-    allCircles.forEach((circle) => {
-      circle.htmlRef.style.backgroundColor = "#F8C6E7";
-      circle.htmlRef.style.border = "3px solid #F8C6E7";
-    });
-    setTimeout(() => {
-      allCircles.forEach((circle) => circle.clear());
-    }, 2000);
+    try {
+      await Promise.all(promises);
+      allCircles.forEach((circle) => {
+        circle.htmlRef.style.backgroundColor = `${pinkColor}`;
+        circle.htmlRef.style.border = `3px solid ${pinkColor}`;
+      });
+      setTimeout(() => {
+        allCircles.forEach((circle) => circle.clear());
+      }, 2000);
 
-    setTimeout(() => {
-      button.style.display = "block";
-    }, 2000);
+      setTimeout(() => {
+        button.style.display = "block";
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   finish();
