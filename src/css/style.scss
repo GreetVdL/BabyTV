@@ -5,6 +5,8 @@
 html {
   font-size: 62, 5%;
 }
+
+// Background styling and animation
 body {
   height: 100vh;
   background: linear-gradient(
@@ -32,6 +34,7 @@ body {
   }
 }
 
+// Circles styling and animation
 #container {
   width: 100%;
   height: 100vh;
@@ -56,6 +59,7 @@ body {
   }
 }
 
+// Button styling
 #button {
   position: absolute;
   width: 100px;

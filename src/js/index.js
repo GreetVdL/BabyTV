@@ -14,7 +14,6 @@ button.addEventListener("click", () => {
   // Button disappears and  allCircles array is being emptied
   button.style.display = "none";
   allCircles.length = 0;
-  console.log(allCircles);
 
   // Draw all circles
   for (let i = 1; i <= amountCircles; i++) {
