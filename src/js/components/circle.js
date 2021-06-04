@@ -18,8 +18,8 @@ export class Circle {
     this._x = x;
     this._y = y;
     this._holder = holder;
-    this._htmlRef = this.generateHTML();
-    this.applyStyling();
+    this._htmlRef = this._generateHTML();
+    this._applyStyling();
   }
 
   get htmlRef() {
@@ -30,7 +30,7 @@ export class Circle {
     this._htmlRef.remove();
   }
 
-  generateHTML() {
+  _generateHTML() {
     this._holder.insertAdjacentHTML(
       "beforeend",
       `
@@ -40,7 +40,7 @@ export class Circle {
     return this._holder.querySelector(".circle:last-child");
   }
 
-  applyStyling() {
+  _applyStyling() {
     const styles = {
       width: this._diameter + "px",
       height: this._diameter + "px",
